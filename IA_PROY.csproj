@@ -19,9 +19,16 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.13" />
     <PackageReference Include="Microsoft.ML" Version="3.0.0-preview.23266.6" />
   </ItemGroup>
-  <ItemGroup>
-		<None Update="SentimentModel.mlnet">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
+  <ItemGroup Label="SentimentModel">
+    <None Include="SentimentModel.consumption.cs">
+      <DependentUpon>SentimentModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="SentimentModel.training.cs">
+      <DependentUpon>SentimentModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="SentimentModel.zip">
+      <DependentUpon>SentimentModel.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
