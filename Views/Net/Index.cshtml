@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Formulario IA</h1>
+
+
+<form asp-controller="Net" asp-action="Analizar" method="post">
+        <label for="text">Ingrese texto a analizar:</label>
+        <input type="text" id="text" name="text" class="form-control" required>
+    <br />
+    <button type="submit" class="btn btn-primary">Analizar</button>
+</form>
+<br />
+<div>
+    <p>
+        @if(@Model != null)
+        {
+            <p>Resultado de la predicción:</p>
+            @if (@Model.PredictedLabel == 1)
+            {
+                <span>El sentimiento del comentario es POSITIVO.</span>
+            }
+            else
+            {
+                <span>El sentimiento del comentario es NEGATIVO.</span>
+            }
+        }
+        
+    </p>
+</div>
